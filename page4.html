@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>BBT招新</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/jquery-3.4.1.min.js">
+        function postSignup(argName, argSex, argAge, argCollege, argTel, argFirst, argSecond, argTime, argAdjust, argIntro) {
+            //创建一个XMLHttpRequest 对象
+            var xhr = new XMLHttpRequest();
+            //准备发送请求的数据：url
+            var url = "/input.py";
+            //使用HTTP POST请求与服务器交互数据
+            xhr.open("POST", url, true);
+            //设置发送数据的请求格式
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 3) {
+                    // loading();
+                } else if (xhr.readyState == 4) {
+                    // closeLoading();
+                    //根据服务器的响应内容格式处理响应结果
+                    if (xhr.getResponseHeader('content-type') === 'application/json') {
+                        console.log(xhr.responseText);
+                        var resultJSON = JSON.parse(xhr.responseText);
+                        if (resultJSON.errcode === 0) {
+                            alert("报名成功!");
+                            reload();
+                        }
+                    } else {
+                        console.log(xhr.responseText);
+                        alert("发生错误");
+                    }
+                }
+            }
+
+            var sendData = {
+                "Name": argName,
+                "SEX": argSex,
+                "AGE": argAge,
+                "College": argCollege,
+                "Tel": argTel,
+                "FIRST": argFirst,
+                "SECOND": argSecond,
+                "timing": argTime,
+                "FUCONG": argAdjust,
+                "SELFPRO": argIntro,
+            };
+            //将用户输入值序列化成字符串
+            console.log(JSON.stringify(sendData));
+            xhr.send(JSON.stringify(sendData));
+
+            function postInfo() {
+                var Name = document.getElementById("name").value;
+                var SEX = $("input[name='sex']:checked").val();
+                var AGE = $("input[name='grade']:checked").val();
+                var College = $('select#college option:selected').val();
+                var DIC = document.getElementById("dorm").value;
+                var Tel = document.getElementById("tel").value;
+                var FIRST = $('select#first option:selected').val();
+                var SECOND = $('select#second option:selected').val();
+                var timing = $('select#time option:selected').val();
+                var FUCONG = $("input[name='adjust']:checked").val();
+                var SELFPRO = document.getElementById("intro").value;
+                postSignup(Name, SEX, AGE, College, DIC, Tel, FIRST, SECOND, timing, FUCONG, SELFPRO)
+                console.log(Name, SEX, AGE, College, DIC, Tel, FIRST, SECOND, timing, FUCONG, SELFPRO)
+
+            }
+        }
+    </script>
+
+    <!-- Demo styles -->
+    <style>
+        body,
+        div,
+        h2,
+        h3,
+        ul,
+        li,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        html,
+        body {
+            /* margin: 0;
+            background-image: url(img/bg.jpg);
+            background-position: fixed;
+            background-size: cover;
+            overflow: hidden; */
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg") no-repeat;
+            background-size: 100%;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        
+        .title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            margin: 0 20%;
+            text-align: center;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .titleImg {
+            width: 100%;
+            margin: 50px 0 0 0;
+        }
+        
+        body {
+            -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            color: #567635;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .swiper-container {
+            position: absolute;
+            top: 20%;
+            left: 8%;
+            right: 8%;
+            width: 84%;
+            height: 58%;
+            margin: 0 auto;
+        }
+        
+        .swiper-slide {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .main {
+            height: 80%;
+        }
+        
+        .button {
+            position: absolute;
+            width: 100%;
+            left: 30%;
+            top: 70%;
+            margin: 80px 2px 0px 5px;
+        }
+        
+        .btn1 {
+            position: absolute;
+            width: 30%;
+            height: 28px;
+            border-radius: 5px;
+            display: inline-block;
+            background-color: #769459;
+            color: white;
+            border: 2px solid #567635;
+            margin: 10px;
+            -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+            cursor: pointer;
+            text-align: center;
+            outline: none;
+        }
+        
+        .btn1:active {
+            box-shadow: 3px 6px 3px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            background-color: white;
+            color: black;
+        }
+        /* .btn {
+            width: 35%;
+            text-align: center;
+            z-index: 99999;
+        }
+        
+        .btn:hover {
+            transform: scale(1.1);
+        } */
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            display: inline;
+            margin-left: 3%;
+        }
+        
+        .inputGroup {
+            width: 50%;
+            height: 20px;
+        }
+        
+        .introduce {
+            margin-top: 5%;
+            display: block;
+            width: 80%;
+            height: 100px;
+            margin-left: 13%;
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid #567635;
+            border-radius: 2px;
+        }
+        
+        .introduce:focus {
+            border: 1px solid #567635;
+            outline-color: #567635;
+        }
+        
+        .radish {
+            margin-right: 2%;
+            width: 10%;
+        }
+        
+        .inputGroup {
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid #567635;
+            padding: 5px 3px;
+            border-radius: 5px;
+        }
+        
+        .inputGroup:focus {
+            border: 1px solid #567635;
+            outline-color: #567635;
+            border-radius: 9px;
+        }
+        
+        .choose {
+            width: 50%;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid #567635;
+            padding: 5px 3px;
+            border-radius: 5px;
+        }
+        
+        .choose select {
+            /*清除select的边框样式*/
+            border: none;
+            /*清除select聚焦时候的边框颜色*/
+            outline: none;
+            /*将select的宽高等于div的宽高*/
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            /*隐藏select的下拉图标*/
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            /*通过padding-left的值让文字居中*/
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <img class="titleImg" src="img/title2.png" alt="">
+        </div>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <form class="main">
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">姓名</label>
+                            <div class="controls">
+                                <input id="name" name="name" type="text" placeholder="你的名字" class="inputGroup" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">性别</label>
+                            <div class="controls">
+                                <label class="radio">
+                                    <input type="radio" value="男" name="sex">男</label>
+                                <label class="radio">
+                                    <input type="radio" value="女" name="sex">女</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">年级</label>
+                            <div class="controls">
+                                <label class="radio">
+                                    <input type="radio" value="大一" name="grade" >大一</label>
+                                <label class="radio">
+                                    <input type="radio" value="大二" name="grade">大二</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">学院</label>
+                            <div class="controls">
+                                <select class="choose" name="college" placeholder="请选择" id="college">
+                                <option value="none" selected disabled hidden>请选择</option>
+                                <option value="设计学院">设计学院</option>
+                                <option value="数学学院">数学学院</option>
+                                <option value="软件学院">软件学院</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">宿舍</label>
+                            <div class="controls">
+                                <input id="dorm" name="dorm" type="text" placeholder="按格式输入，如：C1-111" class="inputGroup" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">手机</label>
+                            <div class="controls">
+                                <input id="tel" name="telephone" type="text" placeholder="11位数字" class="inputGroup" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">第一意向</label>
+                            <select class="choose" name="time" placeholder="请选择" id="first">
+                                <option value="none" selected disabled hidden>请选择</option>
+                                <option value="技术部">技术部</option>
+                                <option value="人力资源部">人力资源部</option>
+                                <option value="视频部">视频部</option>
+                                </select>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" style="margin-left: 13.5%;" for="input01">第二意向</label>
+                            <select class="choose" name="time" placeholder="请选择" id="second">
+                                <option value="none" selected disabled hidden>请选择</option>
+                                <option value="技术部">技术部</option>
+                                <option value="人力资源部">人力资源部</option>
+                                <option value="视频部">视频部</option>
+                                </select>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">可面试时间</label>
+                            <select class="choose" name="time" placeholder="请选择" id="time">
+                            <option value="none" selected disabled hidden>请选择</option>
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">是否服从调剂</label>
+                            <div class="controls">
+                                <label class="radio">
+                                    <input type="radio" value="是" name="adjust" >是</label>
+                                <label class="radio">
+                                    <input type="radio" value="否" name="adjust">否</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label">自我介绍</label>
+                            <div class="controls">
+                                <textarea id="Sintro" name="intro" type="text" placeholder="选填，20字以内" maxlength="20" class="introduce" required></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="button">
+            <form>
+                <input class="btn1" type="submit" value="报名" onclick="postInfo()">
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
