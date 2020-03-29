@@ -26,6 +26,7 @@ try:
         sql="SELECT * from stud where `Tel`=TEL"
         results=cur.execute(sql)
         returns = cur.fetchall()
+        errCode=0
         for rows in returns:
             NA = rows[1]
             SE = rows[2]
@@ -37,10 +38,11 @@ try:
             ti = rows[8]
             FU = rows[9]
             SELFP = rows[10]
-        dataa={"Name":"NA","SEX":"SE","AGE":"AG","College":"DI","Tel":"TE","FIRST":"FI","SECOND":"SECO","timing":"ti","FUCONG":"FU","SELFPRO":"SELFP",}
-        response=requests.post('C:/Users/AZUMATOGAKU/Desktop/c++/PY/search',headers,dataa)
+
+        dataa={"Name":"NA","SEX":"SE","AGE":"AG","College":"DI","Tel":"TE","FIRST":"FI","SECOND":"SECO","timing":"ti","FUCONG":"FU","SELFPRO":"SELFP","errcode":"errcode"}
+        response=requests.post('C:/Users/AZUMATOGAKU/Desktop/c++/PY/search',json=dataa,headers=headers)
 except pymysql.Error as e:
-        print("baiogechuangjianshibai"+str(e))
+        print(".."+str(e))
 db.close()
 
 
