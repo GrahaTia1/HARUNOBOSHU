@@ -1,0 +1,190 @@
+    body,
+    div,
+    h2,
+    h3,
+    ul,
+    li,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    ul {
+        list-style-type: none;
+    }
+    
+    html,
+    body {
+        /* margin: 0;
+            background-image: url(img/bg.jpg);
+            background-position: fixed;
+            background-size: cover;
+            overflow: hidden; */
+        width: 100%;
+        height: 100%;
+        background: url("img/bg.jpg") no-repeat;
+        background-size: 100%;
+    }
+    
+    .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60%;
+        margin: 0 20%;
+        text-align: center;
+        transition: opacity 0.5s ease;
+        z-index: 1;
+    }
+    
+    .topImg {
+        width: 100%;
+        margin: 100px 0 0 0;
+    }
+    
+    .secondImg {
+        width: 100%;
+        margin: 20px 0 0 0;
+    }
+    
+    .btn1 {
+        width: 45%;
+        position: absolute;
+        width: 45%;
+        top: 110%;
+        left: 2%;
+    }
+    
+    .btn2 {
+        width: 45%;
+        position: absolute;
+        width: 45%;
+        top: 110%;
+        left: 53%;
+    }
+    
+    .btn3 {
+        position: absolute;
+        width: 45%;
+        top: 110%;
+        left: 2%;
+        z-index: -99999;
+    }
+    
+    .btn4 {
+        position: absolute;
+        width: 45%;
+        top: 110%;
+        left: 53%;
+        z-index: -99999;
+    }
+    
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        position: fixed;
+    }
+    
+    .luobo {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0px;
+        margin: 0 0 0 0;
+    }
+    
+    .intro>dl>dd {
+        position: absolute;
+        top: 20px;
+        left: 90px;
+    }
+    
+    .buttoncontainer {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 53%;
+        margin: 80px 2px 0px 2px;
+    }
+    
+    .button1 {
+        position: absolute;
+        left: 15%;
+        width: 32%;
+        height: 45%;
+        margin: 5px 0 0 0;
+        color: white;
+        text-decoration: none;
+        font-size: 23px;
+        font-family: Adobe 黑体 Std;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        position: relative;
+        /* BACKGROUND GRADIENTS */
+        background: #89ba80;
+        /* BORDER RADIUS */
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        /* BOX SHADOW */
+        -moz-box-shadow: 0 1px 3px black;
+        -webkit-box-shadow: 0 1px 3px black;
+        box-shadow: 0 1px 3px black;
+    }
+    /* WHILE HOVERED */
+    
+    .button1:hover {
+        background: #7aa473;
+    }
+    /* WHILE BEING CLICKED */
+    
+    .button1:active {
+        -moz-box-shadow: 0 2px 6px black;
+        -webkit-box-shadow: 0 2px 6px black;
+    }
+    
+    .button2 {
+        position: absolute;
+        left: -15%;
+        width: 32%;
+        height: 45%;
+        margin: 5px 0 0 0;
+        color: #57984c;
+        text-decoration: none;
+        font-size: 23px;
+        font-family: Adobe 黑体 Std;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        position: relative;
+        /* BACKGROUND GRADIENTS */
+        background: #ffffff;
+        /* BORDER RADIUS */
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        /* BOX SHADOW */
+        -moz-box-shadow: 0 1px 3px black;
+        -webkit-box-shadow: 0 1px 3px black;
+        box-shadow: 0 1px 3px black;
+    }
+    /* WHILE HOVERED */
+    
+    .button2:hover {
+        background: #e8e8e8;
+    }
+    /* WHILE BEING CLICKED */
+    
+    .button2:active {
+        -moz-box-shadow: 0 2px 6px black;
+        -webkit-box-shadow: 0 2px 6px black;
+    }

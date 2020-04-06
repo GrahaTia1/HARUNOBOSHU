@@ -1,0 +1,200 @@
+body,
+div,
+h2,
+h3,
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+html,
+body {
+    /* margin: 0;
+    background-image: url(img/bg.jpg);
+    background-position: fixed;
+    background-size: cover;
+    overflow: hidden; */
+    width: 100%;
+    height: 100%;
+    background: url("img/bg.jpg") no-repeat;
+    background-size: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    margin: 0 20%;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.titleImg {
+    width: 100%;
+    margin: 50px 0 0 0;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #567635;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    position: absolute;
+    top: 18%;
+    left: 0px;
+    width: 100%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.swiper-slide>p {
+    position: absolute;
+    left: 15%;
+    width: 74%;
+    font-size: 18px;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    color: #273c12;
+    line-height: 27px;
+}
+
+.swiper-slide>h1 {
+    text-align: center;
+    font-size: 25px;
+    color: #567635
+}
+
+.buttoncontainer {
+    position: absolute;
+    width: 100%;
+    left: 29%;
+    top: 70%;
+    margin: 80px 2px 0px 5px;
+}
+
+.button {
+    width: 40%;
+    height: 45%;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Adobe 黑体 Std;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    position: relative;
+    /* BACKGROUND GRADIENTS */
+    background: #89ba80;
+    /* BORDER RADIUS */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    /* TEXT SHADOW */
+    text-shadow: 1px 1px 1px black;
+    /* BOX SHADOW */
+    -moz-box-shadow: 0 1px 3px black;
+    -webkit-box-shadow: 0 1px 3px black;
+    box-shadow: 0 1px 3px black;
+}
+
+
+/* WHILE HOVERED */
+
+.button:hover {
+    background: #7aa473;
+    background: -moz-linear-gradient(top, #7aa473, #5b9151 50%, #347229 51%, #1b4e11);
+    background: -webkit-gradient(linear, top, bottom, color-stop(0, #5b9151), color-stop(.5, #347229), color-stop(.51, #1b4e11), to(#144e08));
+}
+
+
+/* WHILE BEING CLICKED */
+
+.button:active {
+    box-shadow: 0 2px 6px black;
+    -moz-box-shadow: 0 2px 6px black;
+    -webkit-box-shadow: 0 2px 6px black;
+}
+
+.bottom2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+}
+
+.luobo2 {
+    position: relative;
+    width: 100%;
+    bottom: -10px;
+    left: 0px;
+    margin: 0 0 0 0;
+}
+
+.rightArrow {
+    background-image: url('img/right.png');
+    background-size: cover;
+    display: block;
+    position: fixed;
+    right: 10px;
+    top: 45%;
+    width: 7%;
+    height: 5%;
+    z-index: 100;
+}
+
+.leftAllow {
+    background-image: url('img/left.png');
+    background-size: cover;
+    display: block;
+    position: fixed;
+    left: 10px;
+    top: 45%;
+    width: 7%;
+    height: 5%;
+    z-index: 100;
+}
+
+.swiper-button-next {
+    color: #567635;
+}
+
+.swiper-button-prev {
+    color: #567635;
+}

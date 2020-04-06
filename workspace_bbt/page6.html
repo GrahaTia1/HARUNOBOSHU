@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>BBT招新</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("name").innerHTML = localStorage.getItem("name");
+            var sex = localStorage.getItem("sex");
+            if (sex == '男') {
+                $("[name='sex']:eq(0)").prop("checked", true);
+            } else {
+                $("[name='sex']:eq(1)").prop("checked", true);
+            }
+            var grade = localStorage.getItem("age");
+            if (grade == '大一') {
+                $("[name='grade']:eq(0)").prop("checked", true);
+            } else {
+                $("[name='grade']:eq(1)").prop("checked", true);
+            }
+            var valueCollege = localStorage.getItem("college");
+            $(select).val(valueCollege);
+            document.getElementById("dorm").innerHTML = localStorage.getItem("dic");
+            document.getElementById("tel").innerHTML = localStorage.getItem("tel");
+            var valueFirst = localStorage.getItem("first");
+            $(select).val(valueFirst);
+            var valueSecond = localStorage.getItem("second");
+            $(select).val(valueSecond);
+            var valueTime = localStorage.getItem("timing");
+            $(select).val(valueTime);
+            var adjust = localStorage.getItem("fucong");
+            if (adjust == '是') {
+                $("[name='adjust']:eq(0)").prop("checked", true);
+            } else {
+                $("[name='adjust']:eq(1)").prop("checked", true);
+            }
+            document.getElementById("intro").innerHTML = localStorage.getItem("selfpro");
+        };
+    </script>
+
+    <!-- Demo styles -->
+    <style>
+        body,
+        div,
+        h2,
+        h3,
+        ul,
+        li,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        html,
+        body {
+            /* margin: 0;
+            background-image: url(img/bg.jpg);
+            background-position: fixed;
+            background-size: cover;
+            overflow: hidden; */
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg") no-repeat;
+            background-size: 100%;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        
+        .title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            margin: 0 20%;
+            text-align: center;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .titleImg {
+            width: 100%;
+            margin: 50px 0 0 0;
+        }
+        
+        body {
+            -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            color: #567635;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .swiper-container {
+            position: absolute;
+            top: 20%;
+            left: 8%;
+            right: 8%;
+            width: 84%;
+            height: 58%;
+            margin: 0 auto;
+        }
+        
+        .swiper-slide {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .main {
+            height: 80%;
+        }
+        
+        .buttoncontainer {
+            position: absolute;
+            width: 100%;
+            left: 29%;
+            top: 70%;
+            margin: 80px 2px 0px 5px;
+        }
+        
+        .button {
+            width: 40%;
+            height: 45%;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            font-family: Adobe 黑体 Std;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+            position: relative;
+            /* BACKGROUND GRADIENTS */
+            background: #89ba80;
+            /* BORDER RADIUS */
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            border: 1px solid #000000;
+            /* TEXT SHADOW */
+            text-shadow: 1px 1px 1px black;
+            /* BOX SHADOW */
+            -moz-box-shadow: 0 1px 3px black;
+            -webkit-box-shadow: 0 1px 3px black;
+            box-shadow: 0 1px 3px black;
+        }
+        /* WHILE HOVERED */
+        
+        .button:hover {
+            background: #7aa473;
+            background: -moz-linear-gradient(top, #7aa473, #5b9151 50%, #347229 51%, #1b4e11);
+            background: -webkit-gradient(linear, top, bottom, color-stop(0, #5b9151), color-stop(.5, #347229), color-stop(.51, #1b4e11), to(#144e08));
+        }
+        /* WHILE BEING CLICKED */
+        
+        .button:active {
+            box-shadow: 0 2px 6px black;
+            -moz-box-shadow: 0 2px 6px black;
+            -webkit-box-shadow: 0 2px 6px black;
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            display: inline;
+            margin-left: 3%;
+        }
+        
+        .inputGroup {
+            width: 50%;
+            height: 20px;
+        }
+        
+        .introduce {
+            margin-top: 5%;
+            display: block;
+            width: 80%;
+            height: 100px;
+            margin-left: 13%;
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid #567635;
+            border-radius: 2px;
+        }
+        
+        .introduce:focus {
+            border: 1px solid #567635;
+            outline-color: #567635;
+        }
+        
+        .radish {
+            margin-right: 2%;
+            width: 10%;
+        }
+        
+        .inputGroup {
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid #567635;
+            padding: 5px 3px;
+            border-radius: 5px;
+        }
+        
+        .inputGroup:focus {
+            border: 1px solid #567635;
+            outline-color: #567635;
+            border-radius: 9px;
+        }
+        
+        .choose {
+            width: 50%;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid #567635;
+            padding: 5px 3px;
+            border-radius: 5px;
+        }
+        
+        .choose select {
+            /*清除select的边框样式*/
+            border: none;
+            /*清除select聚焦时候的边框颜色*/
+            outline: none;
+            /*将select的宽高等于div的宽高*/
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            /*隐藏select的下拉图标*/
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            /*通过padding-left的值让文字居中*/
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <img class="titleImg" src="img/title2.png" alt="">
+        </div>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <form class="main">
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label1">姓名</label>
+                            <div class="controls">
+                                <input id="name" name="name" type="text" placeholder="你的名字" class="inputGroup" required="required">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label2">性别</label>
+                            <div class="controls">
+                                <label class="radio">
+                                    <input type="radio" value="男" name="sex">男</label>
+                                <label class="radio">
+                                    <input type="radio" value="女" name="sex">女</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label3">年级</label>
+                            <div class="controls">
+                                <label class="radio">
+                                    <input type="radio" value="大一" name="grade" >大一</label>
+                                <label class="radio">
+                                    <input type="radio" value="大二" name="grade">大二</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label4">学院</label>
+                            <div class="controls">
+                                <select class="choose" name="college" placeholder="请选择" id="college">
+                                <option value="" selected disabled hidden>请选择</option>
+                                <option value="设计学院">设计学院</option>
+                                <option value="数学学院">数学学院</option>
+                                <option value="软件学院">软件学院</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label5">宿舍</label>
+                            <div class="controls">
+                                <input id="dorm" name="dorm" type="text" placeholder="按格式输入，如：C1-111" class="inputGroup" required="required">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label6">手机</label>
+                            <div class="controls">
+                                <input id="tel" name="telephone" type="text" placeholder="11位数字" class="inputGroup" required="required">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label7">第一意向</label>
+                            <select class="choose" name="time" placeholder="请选择" id="first">
+                                <option value="" selected disabled hidden>请选择</option>
+                                <option value="技术部">技术部</option>
+                                <option value="人力资源部">人力资源部</option>
+                                <option value="视频部">视频部</option>
+                                </select>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" id="label8" style="margin-left: 13.5%;" for="input01">第二意向</label>
+                            <select class="choose" name="time" placeholder="请选择" id="second">
+                                <option value="" selected disabled hidden>请选择</option>
+                                <option value="技术部">技术部</option>
+                                <option value="人力资源部">人力资源部</option>
+                                <option value="视频部">视频部</option>
+                                </select>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label9">可面试时间</label>
+                            <select class="choose" name="time" placeholder="请选择" id="time">
+                            <option value="" selected disabled hidden>请选择</option>
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label10">是否服从调剂</label>
+                            <div class="controls">
+                                <label class="radio">
+                                    <input type="radio" value="是" name="adjust" >是</label>
+                                <label class="radio">
+                                    <input type="radio" value="否" name="adjust">否</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <img class="radish" src="img/radish.png" alt="">
+                            <label class="control-label" id="label11">自我介绍</label>
+                            <div class="controls">
+                                <textarea id="intro" name="intro" type="text" placeholder="选填，20字以内" maxlength="20" class="introduce" required="required"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="buttoncontainer">
+            <a href="##" class="button" type="submit" onclick="postInfo()"> 报名 </a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
